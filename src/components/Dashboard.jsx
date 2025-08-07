@@ -27,13 +27,13 @@ const tools = [
   },
   {
     name: 'Coming soon',
-    url: 'https://touchpoint-scorer-thirdshift.vercel.app',
+    url: 'https://thirdshift-rnd.vercel.app/',
     icon: '🧮',
     description: 'AI .......'
   },
   {
     name: 'Coming soon',
-    url: 'https://touchpoint-scorer-thirdshift.vercel.app',
+    url: 'https://thirdshift-rnd.vercel.app/',
     icon: '📈',
     description: 'AI......'
   },
