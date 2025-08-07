@@ -21,7 +21,7 @@ const tools = [
   },
   {
     name: 'Media Mix Determination Model',
-    url: 'https://touchpoint-scorer-thirdshift.vercel.app',
+    url: 'https://thirdshift-rnd.vercel.app/',
     icon: '📈',
     description: 'Machine learning and genetic algorithm-based optimization for media mix determination'
   },
