@@ -20,7 +20,7 @@ const tools = [
     description: 'Smart media spot allocator using mathematical optimization'
   },
   {
-    name: 'Media Mix Determination Model',
+    name: 'Multimedia Reach Analyzer',
     url: 'https://thirdshift-rnd.vercel.app/',
     icon: '📈',
     description: 'Machine learning and genetic algorithm-based optimization for media mix determination'
