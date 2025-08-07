@@ -89,7 +89,7 @@ function Dashboard() {
 
       <p className="coming-soon">
         <span className="pulse-dot">⚡</span>
-        Next-generation AI tools currently in development...
+        This is just the beginning — even more intelligent tools are on their way...
       </p>
 
       <style jsx>{`
