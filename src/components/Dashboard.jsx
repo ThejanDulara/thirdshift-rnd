@@ -21,7 +21,7 @@ const tools = [
   },
   {
     name: 'Multimedia Reach Analyzer',
-    url: 'https://thirdshift-rnd.vercel.app/',
+    url: 'https://mmm-reach.vercel.app',
     icon: '📈',
     description: 'Machine learning and genetic algorithm-based optimization for media mix determination'
   },
