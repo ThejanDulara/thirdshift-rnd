@@ -33,10 +33,16 @@ const tools = [
     description: 'Filtering media objectives to streamline decision-making for planning'
   },
   {
+    name: 'Television Media Reach Predictor',
+    url: 'https://reach-predictor-3rdshift.vercel.app',
+    icon: '📈',
+    description: 'AI......'
+  },
+  {
     name: 'Coming soon',
     url: 'https://thirdshift-rnd.vercel.app/',
     icon: '📈',
-    description: 'AI......'
+    description: 'Machine learning–based television reach prediction for smarter television media planning'
   },
 ];
 
