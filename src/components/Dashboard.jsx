@@ -36,13 +36,13 @@ const tools = [
     name: 'Television Media Reach Predictor',
     url: 'https://reach-predictor-3rdshift.vercel.app',
     icon: '📈',
-    description: 'AI......'
+    description: 'Machine learning–based television reach prediction for smarter television media planning'
   },
   {
     name: 'Coming soon',
     url: 'https://thirdshift-rnd.vercel.app/',
     icon: '📈',
-    description: 'Machine learning–based television reach prediction for smarter television media planning'
+    description: 'AI......'
   },
 ];
 
