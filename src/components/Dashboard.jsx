@@ -4,43 +4,43 @@ import MediaCarousel from './MediaCarousel';
 const tools = [
   {
     name: 'Communication Objective Prioritization Tool',
-    url: 'https://communication-objective-prioritizat-alpha.vercel.app/',
+    url: 'https://copt.thirdshiftmedia.agency/',
     icon: '🧠',
     description: 'Data-driven prioritization engine for communication strategies'
   },
   {
     name: 'Campaign Touchpoint Scorer',
-    url: 'https://touchpoint-scorer-thirdshift.vercel.app',
+    url: 'https://cts.thirdshiftmedia.agency/',
     icon: '📊',
     description: 'Campaign Touchpoint Prioritization via Weighted Communication Task Scoring'
   },
   {
     name: 'Television Media Scheduling Optimization Tool',
-    url: 'https://opt-web-app-7byg.vercel.app',
+    url: 'https://opt.thirdshiftmedia.agency/',
     icon: '🤖',
     description: 'Smart media spot allocator using mathematical optimization'
   },
   {
     name: 'Multimedia Reach Analyzer',
-    url: 'https://mmm-reach.vercel.app',
+    url: 'https://mmmr.thirdshiftmedia.agency/',
     icon: '📈',
     description: 'Machine learning and genetic algorithm-based optimization for media mix determination'
   },
   {
     name: 'Media Objective Identifier',
-    url: 'https://m-objectives-8kd1.vercel.app',
+    url: 'https://mo.thirdshiftmedia.agency/',
     icon: '🧮',
     description: 'Filtering media objectives to streamline decision-making for planning'
   },
   {
     name: 'Television Media Reach Predictor',
-    url: 'https://reach-predictor-3rdshift.vercel.app',
+    url: 'https://mmmr.thirdshiftmedia.agency/',
     icon: '📈',
     description: 'Machine learning–based television reach prediction for smarter television media planning'
   },
   {
     name: 'Coming soon',
-    url: 'https://thirdshift-rnd.vercel.app/',
+    url: ' https://www.thirdshiftmedia.agency/',
     icon: '📈',
     description: 'AI......'
   },
