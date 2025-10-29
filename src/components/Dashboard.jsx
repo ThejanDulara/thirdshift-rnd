@@ -34,7 +34,7 @@ const tools = [
   },
   {
     name: 'Television Media Reach Predictor',
-    url: 'https://mmmr.thirdshiftmedia.agency/',
+    url: ' https://tmrp.mtmgroup.agency/',
     icon: '📈',
     description: 'Machine learning–based television reach prediction for smarter television media planning'
   },
