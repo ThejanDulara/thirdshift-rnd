@@ -21,8 +21,15 @@ export default function SignIn() {
   const onSubmit = async (e) => {
     e.preventDefault();
     try {
-      await signin(email, password);
-      navigate(redirect, { replace: true });
+    await signin(email, password);
+
+    if (redirect && redirect.startsWith("http")) {
+      // redirect is a full external URL (e.g. copt.thirdshiftmedia.agency)
+      window.location.href = redirect;
+    } else {
+      // redirect is internal (e.g. /dashboard)
+      navigate(redirect || "/dashboard", { replace: true });
+    }
     } catch (err) {
       const status = err.response?.status;
       if (status === 409 && err.response?.data?.status === "pending") {
