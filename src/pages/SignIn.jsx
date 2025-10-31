@@ -23,12 +23,13 @@ export default function SignIn() {
     try {
     await signin(email, password);
 
-    if (redirect && redirect.startsWith("http")) {
-      // redirect is a full external URL (e.g. copt.thirdshiftmedia.agency)
-      window.location.href = redirect;
+    // ✅ decode redirect safely
+    let decodedRedirect = redirect ? decodeURIComponent(redirect) : null;
+
+    if (decodedRedirect && decodedRedirect.startsWith("http")) {
+      window.location.href = decodedRedirect; // full URL (subdomain)
     } else {
-      // redirect is internal (e.g. /dashboard)
-      navigate(redirect || "/dashboard", { replace: true });
+      navigate(decodedRedirect || "/dashboard", { replace: true });
     }
     } catch (err) {
       const status = err.response?.status;
