@@ -74,7 +74,7 @@ export default function Admin() {
                         <img
                         src={
                           u.profile_pic
-                            ? `${import.meta.env.VITE_API_BASE_URL || "http://127.0.0.1:8000"}${u.profile_pic}`
+                            ? `${import.meta.env.VITE_API_BASE_URL || "https://tsmbackend-production.up.railway.app"}${u.profile_pic}`
                             : "/static/default-avatar.png"
                         }
                           alt="Profile"
@@ -127,7 +127,7 @@ export default function Admin() {
                         <img
                         src={
                           u.profile_pic
-                            ? `${import.meta.env.VITE_API_BASE_URL || "http://127.0.0.1:8000"}${u.profile_pic}`
+                            ? `${import.meta.env.VITE_API_BASE_URL || "https://tsmbackend-production.up.railway.app"}${u.profile_pic}`
                             : "/static/default-avatar.png"
                         }
                           alt="Profile"

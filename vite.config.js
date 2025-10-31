@@ -8,7 +8,7 @@ export default defineConfig({
     proxy: {
       // Any request starting with /api will be forwarded to your Flask backend
       '/api': {
-        target: 'http://localhost:8000', // 👈 your Flask backend URL
+        target: 'https://tsmbackend-production.up.railway.app', // 👈 your Flask backend URL
         changeOrigin: true,
         secure: false,
       },

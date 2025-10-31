@@ -35,7 +35,7 @@ function Header() {
             <div style={styles.avatarWrap} onClick={() => setOpen(v => !v)}>
             {user.profile_pic ? (
               <img
-                src={`${import.meta.env.VITE_API_BASE_URL || "http://127.0.0.1:8000"}${user.profile_pic}`}
+                src={`${import.meta.env.VITE_API_BASE_URL || "https://tsmbackend-production.up.railway.app"}${user.profile_pic}`}
                 alt="profile"
                 style={styles.avatarImg}
               />
