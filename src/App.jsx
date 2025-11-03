@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import ScrollToTop from "./components/ScrollToTop";
 import { AuthProvider } from "./AuthContext";   // ✅ fixed import
 import ProtectedRoute from "./ProtectedRoute";
 
@@ -12,11 +13,20 @@ import SignUp from "./pages/SignUp";
 import Profile from "./pages/Profile";
 import Admin from "./pages/Admin";
 import Dashboard from "./components/Dashboard";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (
     <AuthProvider>
       <BrowserRouter>
+      <ScrollToTop />
+        <ToastContainer
+          position="top-right"
+          autoClose={4000}
+          theme="light"
+          style={{ zIndex: 9999 }}
+        />
         <div className="app-container">
           <div className="ai-background"></div>
           <Header />

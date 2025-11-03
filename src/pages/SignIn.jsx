@@ -79,8 +79,6 @@ const resetPwd = async () => {
 
   return (
     <>
-      <ToastContainer position="top-right" autoClose={4000} theme="light" />
-
       {/* === Full-page layout === */}
       <section style={pageWrapper}>
         {/* Left gradient panel */}
@@ -271,13 +269,10 @@ const resetPwd = async () => {
 /* === STYLES === */
 const pageWrapper = {
   width: "100%",
-  minHeight: "100vh", // ✅ instead of height: 100vh
+  height: "100vh",
   display: "flex",
-  flexWrap: "wrap", // ✅ allows stacking on smaller screens
-  background: "#fff",
-  position: "relative",
   overflow: "hidden",
-  zIndex: 2,
+  background: "#fff",
 };
 
 /* Left gradient */

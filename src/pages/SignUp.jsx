@@ -86,8 +86,6 @@ export default function SignUp() {
 
   return (
     <>
-      <ToastContainer position="top-right" autoClose={4000} theme="light" />
-
       <section style={pageWrapper}>
         {/* Left gradient panel */}
         <div style={leftPanel}>
@@ -296,7 +294,6 @@ const pageWrapper = {
   background: "#fff",
   position: "relative",
   overflow: "hidden",
-  zIndex: 2,
 };
 
 const leftPanel = {
