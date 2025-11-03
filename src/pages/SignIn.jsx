@@ -271,11 +271,12 @@ const resetPwd = async () => {
 /* === STYLES === */
 const pageWrapper = {
   width: "100%",
-  height: "100vh",
+  minHeight: "100vh", // ✅ instead of height: 100vh
   display: "flex",
-  overflow: "hidden",
+  flexWrap: "wrap", // ✅ allows stacking on smaller screens
   background: "#fff",
   position: "relative",
+  overflow: "hidden",
   zIndex: 2,
 };
 
