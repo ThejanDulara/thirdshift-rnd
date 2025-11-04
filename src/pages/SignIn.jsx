@@ -2,7 +2,7 @@ import React from "react";
 import { useLocation, Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../AuthContext";
 import { api } from "../api";
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 export default function SignIn() {
@@ -34,7 +34,7 @@ export default function SignIn() {
     } catch (err) {
       const status = err.response?.status;
       if (status === 409 && err.response?.data?.status === "pending") {
-        toast.info("Your application is pending admin approval." );
+        toast.info("Your application is pending admin approval.");
       } else {
         toast.error(err.response?.data?.error || "Sign-in failed");
       }
