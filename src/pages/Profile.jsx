@@ -63,7 +63,7 @@ export default function Profile() {
       const { data } = await api.post("/user/profile-picture", fd, {
         headers: { "Content-Type": "multipart/form-data" },
       });
-      toast.success("Profile picture updated");
+      toast.success("Profile picture updated", { containerId: "profile" });
       setUser({ ...user, profile_pic: data.profile_pic });
     } catch {
       toast.error("Upload failed");
