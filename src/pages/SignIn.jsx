@@ -262,6 +262,7 @@ const resetPwd = async () => {
           </div>
         )}
       </section>
+      <ToastContainer containerId="SignIn" position="top-right" autoClose={4000} theme="light" />
     </>
   );
 }
