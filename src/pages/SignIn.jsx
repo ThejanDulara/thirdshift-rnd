@@ -34,7 +34,7 @@ export default function SignIn() {
     } catch (err) {
       const status = err.response?.status;
       if (status === 409 && err.response?.data?.status === "pending") {
-        toast.info("Your application is pending admin approval."{ containerId: "SignIn" });
+        toast.info("Your application is pending admin approval." , { containerId: "SignIn" });
       } else {
         toast.error(err.response?.data?.error || "Sign-in failed");
       }
