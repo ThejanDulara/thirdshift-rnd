@@ -103,7 +103,6 @@ export default function Profile() {
 
   return (
     <>
-      <ToastContainer position="top-right" autoClose={4000} theme="light" />
       <section style={pageWrapper}>
         {/* Left gradient panel */}
         <div style={leftPanel}>
