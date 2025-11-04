@@ -1,7 +1,7 @@
 import React from "react";
 import { api } from "../api";
 import { useAuth } from "../AuthContext";
-import { toast, } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 export default function Profile() {
@@ -38,7 +38,7 @@ export default function Profile() {
       const { data } = await api.get("/auth/me");
       setUser(data);
     } catch {
-      toast.error("❌ Failed to update profile");
+      toast.error("Failed to update profile");
     }
   };
 
@@ -54,7 +54,7 @@ export default function Profile() {
 
   const uploadPic = async () => {
     if (!file) {
-      toast.warning("⚠️ Please select a picture first");
+      toast.warning("Please select a picture first");
       return;
     }
     const fd = new FormData();
@@ -63,24 +63,24 @@ export default function Profile() {
       const { data } = await api.post("/user/profile-picture", fd, {
         headers: { "Content-Type": "multipart/form-data" },
       });
-      toast.success("📸 Profile picture updated");
+      toast.success("Profile picture updated");
       setUser({ ...user, profile_pic: data.profile_pic });
     } catch {
-      toast.error("❌ Upload failed");
+      toast.error("Upload failed");
     }
   };
 
   const changePassword = async () => {
     if (!oldP || !newP || !confirmP) {
-      toast.warning("⚠️ All fields are required");
+      toast.warning("All fields are required");
       return;
     }
     if (newP !== confirmP) {
-      toast.error("❌ New passwords do not match");
+      toast.error("New passwords do not match");
       return;
     }
     if (newP.length < 6) {
-      toast.warning("⚠️ Password must be at least 6 characters");
+      toast.warning("Password must be at least 6 characters");
       return;
     }
 
@@ -93,9 +93,9 @@ export default function Profile() {
       setOldP("");
       setNewP("");
       setConfirmP("");
-      toast.success("🔑 Password changed successfully");
+      toast.success("Password changed successfully");
     } catch (e) {
-      toast.error(e.response?.data?.error || "❌ Failed to change password");
+      toast.error(e.response?.data?.error || "Failed to change password");
     }
   };
 
