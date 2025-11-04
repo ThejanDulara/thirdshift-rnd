@@ -34,11 +34,11 @@ export default function Profile() {
   const saveProfile = async () => {
     try {
       await api.post("/user/profile", form);
-      toast.success("✅ Profile updated");
+      toast.success("Profile updated", { containerId: "profile" });
       const { data } = await api.get("/auth/me");
       setUser(data);
     } catch {
-      toast.error("Failed to update profile");
+      toast.error("Failed to update profile", { containerId: "profile" });
     }
   };
 
@@ -54,7 +54,7 @@ export default function Profile() {
 
   const uploadPic = async () => {
     if (!file) {
-      toast.warning("Please select a picture first");
+      toast.warning("Please select a picture first", { containerId: "profile" });
       return;
     }
     const fd = new FormData();
@@ -66,21 +66,21 @@ export default function Profile() {
       toast.success("Profile picture updated", { containerId: "profile" });
       setUser({ ...user, profile_pic: data.profile_pic });
     } catch {
-      toast.error("Upload failed");
+      toast.error("Upload failed", { containerId: "profile" });
     }
   };
 
   const changePassword = async () => {
     if (!oldP || !newP || !confirmP) {
-      toast.warning("All fields are required");
+      toast.warning("All fields are required", { containerId: "profile" });
       return;
     }
     if (newP !== confirmP) {
-      toast.error("New passwords do not match");
+      toast.error("New passwords do not match", { containerId: "profile" });
       return;
     }
     if (newP.length < 6) {
-      toast.warning("Password must be at least 6 characters");
+      toast.warning("Password must be at least 6 characters", { containerId: "profile" });
       return;
     }
 
@@ -93,9 +93,9 @@ export default function Profile() {
       setOldP("");
       setNewP("");
       setConfirmP("");
-      toast.success("Password changed successfully");
+      toast.success("Password changed successfully", { containerId: "profile" });
     } catch (e) {
-      toast.error(e.response?.data?.error || "Failed to change password");
+      toast.error(e.response?.data?.error || "Failed to change password", { containerId: "profile" });
     }
   };
 
@@ -103,6 +103,8 @@ export default function Profile() {
 
   return (
     <>
+    <ToastContainer containerId="profile" position="top-right" autoClose={3000} theme="light" />
+
       <section style={pageWrapper}>
         {/* Left gradient panel */}
         <div style={leftPanel}>
