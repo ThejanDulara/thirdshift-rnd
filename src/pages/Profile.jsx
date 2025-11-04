@@ -1,7 +1,7 @@
 import React from "react";
 import { api } from "../api";
 import { useAuth } from "../AuthContext";
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 export default function Profile() {
