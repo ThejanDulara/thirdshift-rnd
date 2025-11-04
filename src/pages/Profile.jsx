@@ -1,7 +1,7 @@
 import React from "react";
 import { api } from "../api";
 import { useAuth } from "../AuthContext";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 export default function Profile() {
@@ -103,8 +103,6 @@ export default function Profile() {
 
   return (
     <>
-    <ToastContainer containerId="profile" position="top-right" autoClose={3000} theme="light" />
-
       <section style={pageWrapper}>
         {/* Left gradient panel */}
         <div style={leftPanel}>
