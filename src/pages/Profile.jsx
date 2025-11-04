@@ -129,15 +129,15 @@ export default function Profile() {
         <div style={rightPanel}>
           <div style={formBox}>
             <div style={{ textAlign: "center", marginBottom: 24 }}>
-              {user.profile_pic ? (
-                <img
-                  src={`${import.meta.env.VITE_API_BASE_URL || "http://127.0.0.1:8000"}${user.profile_pic}`}
-                  alt="Profile"
-                  style={headerImg}
-                />
-              ) : (
-                <div style={iconCircle}>👤</div>
-              )}
+                {user.profile_pic ? (
+                  <img
+                    src={`${import.meta.env.VITE_API_BASE_URL || "https://tsmbackend-production.up.railway.app"}${user.profile_pic}`}
+                    alt="Profile"
+                    style={headerImg}
+                  />
+                ) : (
+                  <div style={iconCircle}>👤</div>
+                )}
               <h2 style={formTitle}>
                 {user.first_name} {user.last_name}
               </h2>
