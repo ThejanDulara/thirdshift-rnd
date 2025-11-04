@@ -11,7 +11,7 @@ const tools = [
   { name:'Multimedia Reach Analyzer', url:'https://mmmr.thirdshiftmedia.agency/', icon:'📈', description:'ML + genetic algorithm-based optimization for media mix' },
   { name:'Media Objective Identifier', url:'https://mo.thirdshiftmedia.agency/', icon:'🧮', description:'Filtering media objectives to streamline decision-making' },
   { name:'Television Media Reach Predictor', url:'https://tmrp.thirdshiftmedia.agency/', icon:'📺', description:'ML-based TV reach prediction for smarter planning' },
-  { name:'Coming Soon', url:'https://www.thirdshiftmedia.agency/', icon:'✨', description:'AI-driven modules currently under development' },
+  { name:'Coming Soon', url:'https://www.thirdshiftmedia.agency/dashboard', icon:'✨', description:'AI-driven modules currently under development' },
 ];
 
 export default function Dashboard() {
