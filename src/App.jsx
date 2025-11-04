@@ -22,7 +22,7 @@ function App() {
       <BrowserRouter>
       <ScrollToTop />
         <ToastContainer containerId="profile" position="top-right" autoClose={4000} theme="light" style={{ zIndex: 9999 }} />
-        <ToastContainer containerId="SignIn" position="top-right" autoClose={4000} theme="light" style={{ zIndex: 9999 }} />
+        <ToastContainer position="top-right" autoClose={4000} theme="light" style={{ zIndex: 9999 }} />
         <div className="app-container">
           <div className="ai-background"></div>
           <Header />
