@@ -2,7 +2,7 @@ import React from "react";
 import { useLocation, Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../AuthContext";
 import { api } from "../api";
-import { toast, ToastContainer } from "react-toastify";
+import { toast} from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 export default function SignIn() {
@@ -31,12 +31,17 @@ export default function SignIn() {
     } else {
       navigate(decodedRedirect || "/dashboard", { replace: true });
     }
-    } catch (err) {
+    }
+    catch (err) {
       const status = err.response?.status;
-      if (status === 409 && err.response?.data?.status === "pending") {
-        toast.info("Your application is pending admin approval.");
+      const message = err.response?.data?.error || "Sign-in failed";
+
+      if (status === 403) {
+        toast.info("Your account is pending admin approval.", { containerId: "SignIn" });
+      } else if (status === 401) {
+        toast.error("Invalid credentials.", { containerId: "SignIn" });
       } else {
-        toast.error(err.response?.data?.error || "Sign-in failed");
+        toast.error(message);
       }
     }
   };
@@ -45,9 +50,9 @@ export default function SignIn() {
     try {
       await api.post("/auth/forgot", { email });
       setOtpSent(true);
-      toast.success("OTP sent. Check your email.");
+      toast.success("OTP sent. Check your email.", { containerId: "SignIn" });
     } catch {
-      toast.error("Unable to send OTP");
+      toast.error("Unable to send OTP", { containerId: "SignIn" });
     }
   };
 
@@ -60,19 +65,19 @@ const resetPwd = async () => {
   if (newPassword.length < 8) missing.push("8 characters");
 
   if (missing.length > 0) {
-    toast.warning(`Password must include ${missing.join(", ")}.`);
+    toast.warning(`Password must include ${missing.join(", ")}.`, { containerId: "SignIn" });
     return;
   }
 
   try {
     await api.post("/auth/reset", { email, otp, new_password: newPassword });
-    toast.success("Password updated. Please sign in.");
+    toast.success("Password updated. Please sign in.", { containerId: "SignIn" });
     setForgotOpen(false);
     setOtpSent(false);
     setOtp("");
     setNewPassword("");
   } catch (e) {
-    toast.error(e.response?.data?.error || "Reset failed");
+    toast.error(e.response?.data?.error || "Reset failed", { containerId: "SignIn" });
   }
 };
 
@@ -262,7 +267,6 @@ const resetPwd = async () => {
           </div>
         )}
       </section>
-      <ToastContainer containerId="SignIn" position="top-right" autoClose={4000} theme="light" />
     </>
   );
 }
