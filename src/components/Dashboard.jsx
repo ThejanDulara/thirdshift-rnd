@@ -8,7 +8,7 @@ const tools = [
   { name:'Communication Objective Prioritization Tool', url:'https://copt.thirdshiftmedia.agency/', icon:'🧠', description:'Data-driven prioritization engine for communication strategies' },
   { name:'Campaign Touchpoint Scorer', url:'https://cts.thirdshiftmedia.agency/', icon:'📊', description:'Campaign Touchpoint Prioritization via Weighted Communication Task Scoring' },
   { name:'Television Media Scheduling Optimization Tool', url:'https://opt.thirdshiftmedia.agency/', icon:'🤖', description:'Smart media spot allocator using mathematical optimization' },
-  { name:'Multimedia Reach Analyzer', url:'https://mmmr.thirdshiftmedia.agency/', icon:'📈', description:'ML + genetic algorithm-based optimization for media mix' },
+  { name:'Multimedia Reach Analyzer', url:'https://mmmr.thirdshiftmedia.agency/', icon:'📈', description:'ML & genetic algorithm-based optimization for media mix' },
   { name:'Media Objective Identifier', url:'https://mo.thirdshiftmedia.agency/', icon:'🧮', description:'Filtering media objectives to streamline decision-making' },
   { name:'Television Media Reach Predictor', url:'https://tmrp.thirdshiftmedia.agency/', icon:'📺', description:'ML-based TV reach prediction for smarter planning' },
   { name:'Coming Soon', url:'https://www.thirdshiftmedia.agency/dashboard', icon:'✨', description:'AI-driven modules currently under development' },
