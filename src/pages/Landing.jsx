@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { api } from "../api";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 export default function Landing() {
@@ -10,16 +10,16 @@ export default function Landing() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!form.email || !form.message) {
-      toast.warning("⚠️ Please fill in email and message.");
+      toast.warning("Please fill in email and message." , { containerId: "Landing" });
       return;
     }
     try {
       await api.post("/public/contact-admin", form);
-      toast.success("✅ Message sent to admin successfully!");
+      toast.success("Message sent to admin successfully!" , { containerId: "Landing" });
       setForm({ email: "", phone: "", message: "" });
     } catch (err) {
       console.error(err);
-      toast.error("❌ Failed to send message. Try again.");
+      toast.error("Failed to send message. Try again." , { containerId: "Landing" });
     }
   };
 
@@ -32,7 +32,6 @@ export default function Landing() {
         minHeight: "100vh",
       }}
     >
-      <ToastContainer position="top-right" autoClose={4000} theme="light" />
 
       {/* === Hero Section === */}
       <section

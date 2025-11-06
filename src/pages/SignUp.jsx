@@ -1,7 +1,7 @@
 import React from "react";
 import { api } from "../api";
 import { Link, useNavigate } from "react-router-dom";
-import { toast, ToastContainer } from "react-toastify";
+import { toast} from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 export default function SignUp() {
@@ -55,12 +55,12 @@ export default function SignUp() {
 
     // ✅ Check password match and strength
     if (form.password !== form.confirm) {
-      toast.error("❌ Passwords do not match");
+      toast.error("Passwords do not match", { containerId: "SignUp" } );
       return;
     }
     const errors = validatePassword(form.password);
     if (errors.length > 0) {
-      toast.error("⚠️ Please meet all password requirements");
+      toast.error("Please meet all password requirements" , { containerId: "SignUp" } );
       setPasswordErrors(errors);
       return;
     }
@@ -76,11 +76,11 @@ export default function SignUp() {
         headers: { "Content-Type": "multipart/form-data" },
       });
       toast.success(
-        "Application submitted! Your account is under review. You'll receive an email once approved."
+        "Application submitted! Your account is under review. You'll receive an email once approved." , { containerId: "SignUp" }
       );
-      setTimeout(() => navigate("/signin"), 2500);
+      setTimeout(() => navigate("/signin"), 4000);
     } catch (e) {
-      toast.error(e.response?.data?.error || "Sign-up failed");
+      toast.error(e.response?.data?.error || "Sign-up failed", { containerId: "SignUp" } );
     }
   };
 

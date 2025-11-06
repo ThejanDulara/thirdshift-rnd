@@ -23,6 +23,9 @@ function App() {
       <ScrollToTop />
         <ToastContainer containerId="profile" position="top-right" autoClose={4000} theme="light" style={{ zIndex: 9999 }} />
         <ToastContainer containerId="SignIn" position="top-right" autoClose={4000} theme="light" style={{ zIndex: 9999 }} />
+        <ToastContainer containerId="SignUp" position="top-right" autoClose={4000} theme="light" style={{ zIndex: 9999 }} />
+        <ToastContainer containerId="Landing" position="top-right" autoClose={4000} theme="light" style={{ zIndex: 9999 }} />
+        <ToastContainer containerId="Admin" position="top-right" autoClose={4000} theme="light" style={{ zIndex: 9999 }} />
         <div className="app-container">
           <div className="ai-background"></div>
           <Header />

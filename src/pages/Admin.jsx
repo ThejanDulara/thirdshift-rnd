@@ -28,20 +28,20 @@ export default function Admin() {
 
   const approve = async (id) => {
     await api.post("/admin/approve", { user_id: id });
-    toast.success("✅ Approved & emailed user");
+    toast.success("Approved & emailed user" ,{ containerId: "Admin" });
     load();
   };
 
   const reject = async (id) => {
     await api.post("/admin/reject", { user_id: id });
-    toast.info("🗑️ User rejected");
+    toast.info("User rejected",{ containerId: "Admin" });
     load();
   };
 
   const remove = async (id, isAdmin) => {
     if (isAdmin) return; // prevent removing admins
     await api.delete(`/admin/users/${id}`);
-    toast.info("🚫 Account deleted");
+    toast.info("Account deleted",{ containerId: "Admin" });
     load();
   };
 
