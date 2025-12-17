@@ -6,6 +6,9 @@ export default function Admin() {
   const [pending, setPending] = React.useState([]);
   const [allUsers, setAllUsers] = React.useState([]);
 
+  // 🔹 Track loading states for each user+action
+  const [actionLoading, setActionLoading] = React.useState({});
+
   const load = async () => {
     try {
       const [pendingRes, allRes] = await Promise.all([
@@ -14,7 +17,6 @@ export default function Admin() {
       ]);
 
       setPending(pendingRes.data);
-      // ✅ Only show approved non-admin users in "All Users"
       const approvedUsers = allRes.data.filter((u) => u.is_approved === 1);
       setAllUsers(approvedUsers);
     } catch (e) {
@@ -27,22 +29,68 @@ export default function Admin() {
   }, []);
 
   const approve = async (id) => {
-    await api.post("/admin/approve", { user_id: id });
-    toast.success("Approved & emailed user" ,{ containerId: "Admin" });
-    load();
+    // Create unique key for this action
+    const actionKey = `${id}_approve`;
+
+    // Prevent re-clicking if already loading
+    if (actionLoading[actionKey]) return;
+
+    try {
+      // Set loading BEFORE API call
+      setActionLoading(prev => ({ ...prev, [actionKey]: true }));
+
+      // Remove the artificial sleep - let it show loading until API completes
+      await api.post("/admin/approve", { user_id: id });
+
+      toast.success("Approved & emailed user", { containerId: "Admin" });
+      load();
+    } catch (e) {
+      toast.error("Approval failed", { containerId: "Admin" });
+    } finally {
+      // Clear loading state AFTER API completes (success or error)
+      setActionLoading(prev => ({ ...prev, [actionKey]: false }));
+    }
   };
 
   const reject = async (id) => {
-    await api.post("/admin/reject", { user_id: id });
-    toast.info("User rejected",{ containerId: "Admin" });
-    load();
+    const actionKey = `${id}_reject`;
+
+    if (actionLoading[actionKey]) return;
+
+    try {
+      setActionLoading(prev => ({ ...prev, [actionKey]: true }));
+      await api.post("/admin/reject", { user_id: id });
+      toast.info("User rejected", { containerId: "Admin" });
+      load();
+    } catch (e) {
+      toast.error("Rejection failed", { containerId: "Admin" });
+    } finally {
+      setActionLoading(prev => ({ ...prev, [actionKey]: false }));
+    }
   };
 
   const remove = async (id, isAdmin) => {
-    if (isAdmin) return; // prevent removing admins
-    await api.delete(`/admin/users/${id}`);
-    toast.info("Account deleted",{ containerId: "Admin" });
-    load();
+    if (isAdmin) return;
+
+    const actionKey = `${id}_delete`;
+
+    if (actionLoading[actionKey]) return;
+
+    try {
+      setActionLoading(prev => ({ ...prev, [actionKey]: true }));
+      await api.delete(`/admin/users/${id}`);
+      toast.info("Account deleted", { containerId: "Admin" });
+      load();
+    } catch (e) {
+      toast.error("Delete failed", { containerId: "Admin" });
+    } finally {
+      setActionLoading(prev => ({ ...prev, [actionKey]: false }));
+    }
+  };
+
+  // Helper to check if a specific action is loading
+  const isLoading = (id, type) => {
+    return actionLoading[`${id}_${type}`] || false;
   };
 
   return (
@@ -72,26 +120,39 @@ export default function Admin() {
                     <tr key={u.id}>
                       <td style={td}>
                         <img
-                        src={
-                          u.profile_pic
-                            ? `${import.meta.env.VITE_API_BASE_URL || "https://tsmbackend-production.up.railway.app"}${u.profile_pic}`
-                            : "/static/default-avatar.png"
-                        }
+                          src={
+                            u.profile_pic
+                              ? `${import.meta.env.VITE_API_BASE_URL || "https://mtmbackend-production.up.railway.app"}${u.profile_pic}`
+                              : "/static/default-avatar.png"
+                          }
                           alt="Profile"
                           style={profilePic}
                         />
                       </td>
-                      <td style={td}>
-                        {u.first_name} {u.last_name}
-                      </td>
+                      <td style={td}>{u.first_name} {u.last_name}</td>
                       <td style={td}>{u.email}</td>
                       <td style={td}>{u.designation || "-"}</td>
                       <td style={td}>
-                        <button onClick={() => approve(u.id)} style={btnApprove}>
-                          Approve
+                        <button
+                          onClick={() => approve(u.id)}
+                          style={{
+                            ...btnApprove,
+                            opacity: isLoading(u.id, "approve") ? 0.6 : 1,
+                          }}
+                          disabled={isLoading(u.id, "approve")}
+                        >
+                          {isLoading(u.id, "approve") ? "Approving..." : "Approve"}
                         </button>
-                        <button onClick={() => reject(u.id)} style={btnReject}>
-                          Reject
+
+                        <button
+                          onClick={() => reject(u.id)}
+                          style={{
+                            ...btnReject,
+                            opacity: isLoading(u.id, "reject") ? 0.6 : 1,
+                          }}
+                          disabled={isLoading(u.id, "reject")}
+                        >
+                          {isLoading(u.id, "reject") ? "Rejecting..." : "Reject"}
                         </button>
                       </td>
                     </tr>
@@ -125,18 +186,16 @@ export default function Admin() {
                     <tr key={u.id}>
                       <td style={td}>
                         <img
-                        src={
-                          u.profile_pic
-                            ? `${import.meta.env.VITE_API_BASE_URL || "https://tsmbackend-production.up.railway.app"}${u.profile_pic}`
-                            : "/static/default-avatar.png"
-                        }
+                          src={
+                            u.profile_pic
+                              ? `${import.meta.env.VITE_API_BASE_URL || "https://mtmbackend-production.up.railway.app"}${u.profile_pic}`
+                              : "/static/default-avatar.png"
+                          }
                           alt="Profile"
                           style={profilePic}
                         />
                       </td>
-                      <td style={td}>
-                        {u.first_name} {u.last_name}
-                      </td>
+                      <td style={td}>{u.first_name} {u.last_name}</td>
                       <td style={td}>{u.email}</td>
                       <td style={td}>{u.designation || "-"}</td>
                       <td style={td}>{u.is_admin ? "Yes" : "No"}</td>
@@ -145,12 +204,12 @@ export default function Admin() {
                           onClick={() => remove(u.id, u.is_admin)}
                           style={{
                             ...btnDelete,
-                            opacity: u.is_admin ? 0.4 : 1,
-                            cursor: u.is_admin ? "not-allowed" : "pointer",
+                            opacity: u.is_admin || isLoading(u.id, "delete") ? 0.4 : 1,
+                            cursor: u.is_admin || isLoading(u.id, "delete") ? "not-allowed" : "pointer",
                           }}
-                          disabled={u.is_admin}
+                          disabled={u.is_admin || isLoading(u.id, "delete")}
                         >
-                          Delete
+                          {isLoading(u.id, "delete") ? "Deleting..." : "Delete"}
                         </button>
                       </td>
                     </tr>
