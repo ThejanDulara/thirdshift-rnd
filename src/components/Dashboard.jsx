@@ -13,7 +13,9 @@ const tools = [
   { name:'Television Media Reach Predictor', url:'https://tmrp.thirdshiftmedia.agency/', icon:'📺', description:'ML-based TV reach prediction for smarter planning' },
   { name:'Power BI Dashboards', url:'https://pbi.thirdshiftmedia.agency/', icon:'📊', description:'Centralized library of Power BI dashboards' },
   { name:'Project Management tool', url:'https://pm.thirdshiftmedia.agency/', icon:'🗃️', description:'Manage all projects in one centralized workspace' },
-  { name:'Coming Soon', url:'https://www.thirdshiftmedia.agency/dashboard', icon:'✨', description:'AI-driven modules currently under development' },
+  { name:'Joseph W. Ostrow – Frequency Estimator ', url:'https://fe.thirdshiftmedia.agency/', icon:'📐️', description:'Frequency planning tool based on the Ostrow model for effective reach optimization' },
+  { name:'SOV/SOM Based Budget Planning tool', url:'https://bp.thirdshiftmedia.agency/', icon:'🎯', description:'Manage all projects in one centralized workspace' },
+  { name:'Coming Soon', url:'https://www.thirdshiftmedia.agency/dashboard', icon:'✨', description:'Strategic budget allocation using Share of Voice and Share of Market principles' },
 ];
 
 export default function Dashboard() {
