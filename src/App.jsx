@@ -20,7 +20,7 @@ function App() {
   return (
     <AuthProvider>
       <BrowserRouter>
-      <ScrollToTop />
+        <ScrollToTop />
         <ToastContainer containerId="profile" position="top-right" autoClose={4000} theme="light" style={{ zIndex: 9999 }} />
         <ToastContainer containerId="SignIn" position="top-right" autoClose={4000} theme="light" style={{ zIndex: 9999 }} />
         <ToastContainer containerId="SignUp" position="top-right" autoClose={4000} theme="light" style={{ zIndex: 9999 }} />
@@ -31,7 +31,7 @@ function App() {
           <Header />
 
           <div className="content-container">
-            <div className="section-wrapper">
+            <div className="section-wrapper animate-slide-up">
               <Routes>
                 <Route path="/" element={<Landing />} />
                 <Route path="/signin" element={<SignIn />} />
@@ -86,9 +86,15 @@ function App() {
               margin-top: 2rem;
               margin-bottom: 2rem;
               flex: 1;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
               position: relative; z-index: 1;
+              box-sizing: border-box;
             }
             .section-wrapper {
+              width: 100%;
               background: rgba(255, 255, 255, 0.95);
               border-radius: 16px;
               box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
@@ -98,7 +104,10 @@ function App() {
               border: 1px solid rgba(255, 255, 255, 0.2);
             }
             @media (min-width: 1400px) { .content-container { padding: 0 4rem; } }
-            @media (max-width: 768px) { .content-container { padding: 0 1rem; } }
+            @media (max-width: 768px) { 
+              .content-container { padding: 0; margin-top: 1rem; margin-bottom: 1rem; } 
+              .section-wrapper { padding: 1rem; border-radius: 0; border-left: none; border-right: none; }
+            }
           `}</style>
         </div>
       </BrowserRouter>

@@ -10,16 +10,16 @@ export default function Landing() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!form.email || !form.message) {
-      toast.warning("Please fill in email and message." , { containerId: "Landing" });
+      toast.warning("Please fill in email and message.", { containerId: "Landing" });
       return;
     }
     try {
       await api.post("/public/contact-admin", form);
-      toast.success("Message sent to admin successfully!" , { containerId: "Landing" });
+      toast.success("Message sent to admin successfully!", { containerId: "Landing" });
       setForm({ email: "", phone: "", message: "" });
     } catch (err) {
       console.error(err);
-      toast.error("Failed to send message. Try again." , { containerId: "Landing" });
+      toast.error("Failed to send message. Try again.", { containerId: "Landing" });
     }
   };
 
@@ -33,32 +33,63 @@ export default function Landing() {
       }}
     >
 
+      <style>
+        {`
+          .landing-hero {
+            flex-direction: row;
+          }
+          .landing-left-panel {
+            border-radius: 24px 0 0 24px;
+          }
+          .landing-right-panel {
+            border-radius: 0 24px 24px 0;
+          }
+          @media (max-width: 768px) {
+            .landing-hero {
+               flex-direction: column !important;
+               padding: 40px 20px !important;
+            }
+            .landing-left-panel {
+               border-radius: 24px 24px 0 0 !important;
+            }
+            .landing-right-panel {
+               border-radius: 0 0 24px 24px !important;
+            }
+          }
+        `}
+      </style>
+
       {/* === Hero Section === */}
       <section
+        className="landing-hero"
         style={{
           display: "flex",
           alignItems: "stretch",
           justifyContent: "center",
           width: "100%",
-          minHeight: "85vh",
-          padding: "60px 40px",
+          minHeight: "75vh",
+          padding: "clamp(40px, 5vw, 60px) clamp(20px, 4vw, 40px)",
           boxSizing: "border-box",
+          borderRadius: "20px",
+          overflow: "hidden",
+          boxShadow: "0 10px 40px rgba(0,0,0,0.08)",
           background: "linear-gradient(135deg, #3bb9af 0%, #b3dc39 100%)",
         }}
       >
         {/* Left Panel (with image + about) */}
         <div
+          className="landing-left-panel"
           style={{
             flex: 1,
+            flexBasis: "50%",
             background: "rgba(255,255,255,0.9)",
-            borderRadius: "24px 0 0 24px",
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
             justifyContent: "center",
             color: "#2d3748",
             boxShadow: "0 8px 30px rgba(0,0,0,0.1)",
-            padding: "40px 20px",
+            padding: "clamp(20px, 4vw, 40px) clamp(10px, 3vw, 20px)",
           }}
         >
           <img
@@ -103,16 +134,17 @@ export default function Landing() {
 
         {/* Right Panel (title + buttons) */}
         <div
+          className="landing-right-panel"
           style={{
             flex: 1,
+            flexBasis: "50%",
             background: "#fff",
-            borderRadius: "0 24px 24px 0",
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
             justifyContent: "center",
             boxShadow: "0 8px 30px rgba(0,0,0,0.08)",
-            padding: "40px",
+            padding: "clamp(20px, 5vw, 40px)",
             textAlign: "center",
           }}
         >

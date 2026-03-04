@@ -110,18 +110,21 @@ export default function SignIn() {
   return (
     <>
       {/* === Full-page layout === */}
-      <section style={pageWrapper}>
+      <section style={pageWrapper} className="auth-page-wrapper">
         {/* Left gradient panel */}
-        <div style={leftPanel}>
-          <div style={leftInner}>
+        <div style={leftPanel} className="auth-left-panel">
+          <div style={leftInner} className="auth-left-inner">
             <img
               src="/TS-GARA-Mask.png"
               alt="TS GARA Mask"
               style={{
-                height: 400,
-                marginBottom: 30,
+                height: "auto",
+                maxHeight: "35vh",
+                maxWidth: "80%",
+                marginBottom: "clamp(15px, 3vw, 30px)",
                 filter: "drop-shadow(0 2px 6px rgba(0,0,0,0.2))",
               }}
+              className="auth-hero-img"
             />
             <h1 style={leftTitle}>Media Intelligence Platform</h1>
             <p style={leftText}>
@@ -338,35 +341,39 @@ export default function SignIn() {
 /* === STYLES === */
 const pageWrapper = {
   width: "100%",
-  minHeight: "100vh",
+  minHeight: "75vh",
   display: "flex",
-  flexWrap: "wrap",       // optional: stack panels on small screens
-  overflowY: "auto",
+  flexWrap: "wrap",
   background: "#fff",
+  borderRadius: "20px",
+  overflow: "hidden",
+  boxShadow: "0 10px 40px rgba(0,0,0,0.08)",
 };
 
 /* Left gradient */
 const leftPanel = {
   flex: 1,
+  flexBasis: "50%",
   background: "linear-gradient(135deg, #3bb9af 0%, #b3dc39 100%)",
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
   color: "#fff",
-  padding: "60px 40px",
+  padding: "clamp(20px, 4vw, 40px) clamp(10px, 3vw, 20px)",
 };
-const leftInner = { textAlign: "center", maxWidth: 500 };
+const leftInner = { textAlign: "center", maxWidth: 500, width: "100%" };
 const leftTitle = { fontSize: 32, fontWeight: 700, marginBottom: 16 };
 const leftText = { fontSize: 18, lineHeight: 1.6, color: "#000000" };
 
 /* Right side */
 const rightPanel = {
   flex: 1,
+  flexBasis: "50%",
   background: "#f8fafc",
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-  padding: "40px 20px",
+  padding: "clamp(20px, 5vw, 40px) clamp(15px, 4vw, 30px)",
 };
 
 const formBox = {

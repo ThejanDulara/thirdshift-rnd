@@ -5,17 +5,17 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const tools = [
-  { name:'Communication Objective Prioritization Tool', url:'https://copt.thirdshiftmedia.agency/', icon:'🧠', description:'Data-driven prioritization engine for communication strategies' },
-  { name:'Campaign Touchpoint Scorer', url:'https://cts.thirdshiftmedia.agency/', icon:'📊', description:'Campaign Touchpoint Prioritization via Weighted Communication Task Scoring' },
-  { name:'Television Media Scheduling Optimization Tool', url:'https://opt.thirdshiftmedia.agency/', icon:'🤖', description:'Smart media spot allocator using mathematical optimization' },
-  { name:'Multimedia Reach Analyzer', url:'https://mmmr.thirdshiftmedia.agency/', icon:'📈', description:'ML & genetic algorithm-based optimization for media mix' },
-  { name:'Media Objective Identifier', url:'https://mo.thirdshiftmedia.agency/', icon:'🧮', description:'Filtering media objectives to streamline decision-making' },
-  { name:'Television Media Reach Predictor', url:'https://tmrp.thirdshiftmedia.agency/', icon:'📺', description:'ML-based TV reach prediction for smarter planning' },
-  { name:'Power BI Dashboards', url:'https://pbi.thirdshiftmedia.agency/', icon:'📊', description:'Centralized library of Power BI dashboards' },
-  { name:'Project Management tool', url:'https://pm.thirdshiftmedia.agency/', icon:'🗃️', description:'Manage all projects in one centralized workspace' },
-  { name:'Joseph W. Ostrow – Frequency Estimator ', url:'https://fe.thirdshiftmedia.agency/', icon:'📐️', description:'Frequency planning tool based on the Ostrow model for effective reach optimization' },
-  { name:'SOV/SOM Based Budget Planning tool', url:'https://bp.thirdshiftmedia.agency/', icon:'🎯', description:'Manage all projects in one centralized workspace' },
-  { name:'Coming Soon', url:'https://www.thirdshiftmedia.agency/dashboard', icon:'✨', description:'Strategic budget allocation using Share of Voice and Share of Market principles' },
+  { name: 'Communication Objective Prioritization Tool', url: 'https://copt.thirdshiftmedia.agency/', icon: '🧠', description: 'Data-driven prioritization engine for communication strategies' },
+  { name: 'Campaign Touchpoint Scorer', url: 'https://cts.thirdshiftmedia.agency/', icon: '📊', description: 'Campaign Touchpoint Prioritization via Weighted Communication Task Scoring' },
+  { name: 'Television Media Scheduling Optimization Tool', url: 'https://opt.thirdshiftmedia.agency/', icon: '🤖', description: 'Smart media spot allocator using mathematical optimization' },
+  { name: 'Multimedia Reach Analyzer', url: 'https://mmmr.thirdshiftmedia.agency/', icon: '📈', description: 'ML & genetic algorithm-based optimization for media mix' },
+  { name: 'Media Objective Identifier', url: 'https://mo.thirdshiftmedia.agency/', icon: '🧮', description: 'Filtering media objectives to streamline decision-making' },
+  { name: 'Television Media Reach Predictor', url: 'https://tmrp.thirdshiftmedia.agency/', icon: '📺', description: 'ML-based TV reach prediction for smarter planning' },
+  { name: 'Power BI Dashboards', url: 'https://pbi.thirdshiftmedia.agency/', icon: '📊', description: 'Centralized library of Power BI dashboards' },
+  { name: 'Project Management tool', url: 'https://pm.thirdshiftmedia.agency/', icon: '🗃️', description: 'Manage all projects in one centralized workspace' },
+  { name: 'Joseph W. Ostrow – Frequency Estimator ', url: 'https://fe.thirdshiftmedia.agency/', icon: '📐️', description: 'Frequency planning tool based on the Ostrow model for effective reach optimization' },
+  { name: 'SOV/SOM Based Budget Planning tool', url: 'https://bp.thirdshiftmedia.agency/', icon: '🎯', description: 'Manage all projects in one centralized workspace' },
+  { name: 'Coming Soon', url: 'https://www.thirdshiftmedia.agency/dashboard', icon: '✨', description: 'Strategic budget allocation using Share of Voice and Share of Market principles' },
 ];
 
 export default function Dashboard() {
@@ -31,13 +31,13 @@ export default function Dashboard() {
   }, []);
 
   return (
-    <div style={styles.pageWrapper}>
+    <div style={{ ...styles.pageWrapper, boxSizing: "border-box" }} className="dashboard-page-wrapper">
       {/* Toast Notifications */}
       <ToastContainer position="top-right" autoClose={4000} theme="light" style={{ zIndex: 9999 }} />
 
       {/* Header Section */}
-      <section style={styles.heroSection}>
-        <div style={styles.heroInner}>
+      <section style={{ ...styles.heroSection, boxSizing: "border-box" }}>
+        <div style={{ ...styles.heroInner, boxSizing: "border-box" }} className="hero-inner-container">
           <div style={styles.heroIcon}>🤖</div>
           <h1 style={styles.heroTitle}>
             Welcome{user ? `, ${user.first_name}` : ""} to the{" "}
@@ -51,9 +51,9 @@ export default function Dashboard() {
       </section>
 
       {/* Tools Section */}
-      <section style={styles.toolsSection}>
+      <section style={styles.toolsSection} className="tools-section">
         <h2 style={styles.sectionTitle}>Explore Our Tools</h2>
-        <div style={styles.cardGrid}>
+        <div style={styles.cardGrid} className="card-grid">
           {tools.map((tool, i) => (
             <a
               key={i}
@@ -123,7 +123,7 @@ const styles = {
     background: "white",
     borderRadius: 20,
     boxShadow: "0 8px 30px rgba(0,0,0,0.08)",
-    padding: "40px 30px",
+    padding: "clamp(20px, 5vw, 40px) clamp(15px, 4vw, 30px)",
     maxWidth: 900,
     margin: "0 auto",
     border: "1px solid #edf2f7",
@@ -200,6 +200,7 @@ const styles = {
     textAlign: "center",
   },
   videoWrapper: {
+    width: "100%",
     maxWidth: 900,
     margin: "0 auto",
     borderRadius: 16,

@@ -103,7 +103,7 @@ export default function Profile() {
 
   return (
     <>
-      <section style={pageWrapper}>
+      <section style={pageWrapper} className="auth-page-wrapper">
         {/* Left gradient panel */}
         <div style={leftPanel}>
           <div style={leftInner}>
@@ -111,10 +111,13 @@ export default function Profile() {
               src="/TS-GARA-Mask.png"
               alt="TS GARA Mask"
               style={{
-                height: 400,
-                marginBottom: 30,
+                height: "auto",
+                maxHeight: "35vh",
+                maxWidth: "80%",
+                marginBottom: "clamp(15px, 3vw, 30px)",
                 filter: "drop-shadow(0 2px 6px rgba(0,0,0,0.2))",
               }}
+              className="auth-hero-img"
             />
             <h1 style={leftTitle}>Your Media Profile</h1>
             <p style={leftText}>
@@ -128,15 +131,15 @@ export default function Profile() {
         <div style={rightPanel}>
           <div style={formBox}>
             <div style={{ textAlign: "center", marginBottom: 24 }}>
-                {user.profile_pic ? (
-                  <img
-                    src={`${import.meta.env.VITE_API_BASE_URL || "https://tsmbackend-production.up.railway.app"}${user.profile_pic}`}
-                    alt="Profile"
-                    style={headerImg}
-                  />
-                ) : (
-                  <div style={iconCircle}>👤</div>
-                )}
+              {user.profile_pic ? (
+                <img
+                  src={`${import.meta.env.VITE_API_BASE_URL || "https://tsmbackend-production.up.railway.app"}${user.profile_pic}`}
+                  alt="Profile"
+                  style={headerImg}
+                />
+              ) : (
+                <div style={iconCircle}>👤</div>
+              )}
               <h2 style={formTitle}>
                 {user.first_name} {user.last_name}
               </h2>
@@ -146,6 +149,7 @@ export default function Profile() {
             {/* Profile Info */}
             <div style={{ display: "grid", gap: 16 }}>
               <div
+                className="signup-name-grid"
                 style={{
                   display: "grid",
                   gridTemplateColumns: "1fr 1fr",
@@ -304,33 +308,37 @@ export default function Profile() {
 /* === STYLES === */
 const pageWrapper = {
   width: "100%",
-  minHeight: "100vh",   // ✅ allow full height
+  minHeight: "75vh",
   display: "flex",
-  overflowX: "hidden",  // ✅ only hide horizontal scroll
+  flexWrap: "wrap",
   background: "#fff",
-  position: "relative",
+  borderRadius: "20px",
+  overflow: "hidden",
+  boxShadow: "0 10px 40px rgba(0,0,0,0.08)",
 };
 
 const leftPanel = {
   flex: 1,
+  flexBasis: "50%",
   background: "linear-gradient(135deg, #3bb9af 0%, #b3dc39 100%)",
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
   color: "#fff",
-  padding: "60px 40px",
+  padding: "clamp(20px, 4vw, 40px) clamp(10px, 3vw, 20px)",
 };
-const leftInner = { textAlign: "center", maxWidth: 500 };
+const leftInner = { textAlign: "center", maxWidth: 500, width: "100%" };
 const leftTitle = { fontSize: 32, fontWeight: 700, marginBottom: 16 };
 const leftText = { fontSize: 18, lineHeight: 1.6, color: "#000" };
 
 const rightPanel = {
   flex: 1,
+  flexBasis: "50%",
   background: "#f8fafc",
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-  padding: "40px 20px",
+  padding: "clamp(20px, 5vw, 40px) clamp(15px, 4vw, 30px)",
 };
 
 const formBox = {
