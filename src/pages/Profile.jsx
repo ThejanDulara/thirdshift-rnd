@@ -191,7 +191,7 @@ export default function Profile() {
             {/* Profile Picture */}
             <div style={{ marginTop: 32 }}>
               <h3 style={sectionTitle}>Profile Picture</h3>
-              <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+              <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: 12 }}>
                 {preview ? (
                   <img
                     src={preview}
@@ -223,7 +223,7 @@ export default function Profile() {
                   </div>
                 )}
 
-                <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
                   <label
                     htmlFor="profileUpload"
                     style={{
@@ -235,6 +235,7 @@ export default function Profile() {
                       cursor: "pointer",
                       fontSize: 14,
                       fontWeight: 500,
+                      whiteSpace: "nowrap",
                     }}
                   >
                     Choose File
@@ -262,7 +263,7 @@ export default function Profile() {
                   </span>
                 </div>
 
-                <button style={secondaryBtn} onClick={uploadPic}>
+                <button style={{ ...secondaryBtn, whiteSpace: "nowrap" }} onClick={uploadPic}>
                   Upload New
                 </button>
               </div>

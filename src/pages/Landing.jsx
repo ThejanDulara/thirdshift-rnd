@@ -96,8 +96,10 @@ export default function Landing() {
             src="/AI.jpg"
             alt="AI illustration"
             style={{
-              width: 280,
-              height: 280,
+              width: "100%",
+              maxWidth: 280,
+              height: "auto",
+              aspectRatio: "1/1",
               borderRadius: "50%",
               objectFit: "cover",
               border: "4px solid #3bb9af",
