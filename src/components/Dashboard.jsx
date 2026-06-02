@@ -15,7 +15,7 @@ const tools = [
   { name: 'Project Management tool', url: 'https://pm.thirdshiftmedia.agency/', icon: '🗃️', description: 'Manage all projects in one centralized workspace' },
   { name: 'Joseph W. Ostrow – Frequency Estimator ', url: 'https://fe.thirdshiftmedia.agency/', icon: '📐️', description: 'Frequency planning tool based on the Ostrow model for effective reach optimization' },
   { name: 'SOV/SOM Based Budget Planning tool', url: 'https://bp.thirdshiftmedia.agency/', icon: '🎯', description: 'Manage all projects in one centralized workspace' },
-  { name: 'Coming Soon', url: 'https://www.thirdshiftmedia.agency/dashboard', icon: '✨', description: 'Strategic budget allocation using Share of Voice and Share of Market principles' },
+  { name: 'Coming Soon', url: 'https://www.thirdshiftmedia.agency/dashboard', icon: '✨'},
 ];
 
 export default function Dashboard() {
