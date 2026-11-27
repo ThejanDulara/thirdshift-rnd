@@ -7,7 +7,8 @@ import "react-toastify/dist/ReactToastify.css";
 const tools = [
   { name: 'Communication Objective Prioritization Tool', url: 'https://copt.thirdshiftmedia.agency/', icon: '🧠', description: 'Data-driven prioritization engine for communication strategies' },
   { name: 'Campaign Touchpoint Scorer', url: 'https://cts.thirdshiftmedia.agency/', icon: '📊', description: 'Campaign Touchpoint Prioritization via Weighted Communication Task Scoring' },
-  { name: 'Television Media Scheduling Optimization Tool', url: 'https://opt.thirdshiftmedia.agency/', icon: '🤖', description: 'Smart media spot allocator using mathematical optimization' },
+  { name: 'Television Media Scheduling Optimization Tool', url: 'https://opt.thirdshiftmedia.agency/', icon: '🤖', description: 'TV media spot allocator using mathematical optimization' },
+  { name: 'Radio Scheduling Optimization Tool', url: 'https://optr.thirdshiftmedia.agency/', icon: '🤖', description: 'Radio spot allocator using mathematical optimization' },
   { name: 'Multimedia Reach Analyzer', url: 'https://mmmr.thirdshiftmedia.agency/', icon: '📈', description: 'ML & genetic algorithm-based optimization for media mix' },
   { name: 'Media Objective Identifier', url: 'https://mo.thirdshiftmedia.agency/', icon: '🧮', description: 'Filtering media objectives to streamline decision-making' },
   { name: 'Television Media Reach Predictor', url: 'https://tmrp.thirdshiftmedia.agency/', icon: '📺', description: 'ML-based TV reach prediction for smarter planning' },
@@ -15,8 +16,8 @@ const tools = [
   { name: 'Project Management tool', url: 'https://pm.thirdshiftmedia.agency/', icon: '🗃️', description: 'Manage all projects in one centralized workspace' },
   { name: 'Joseph W. Ostrow – Frequency Estimator ', url: 'https://fe.thirdshiftmedia.agency/', icon: '📐️', description: 'Frequency planning tool based on the Ostrow model for effective reach optimization' },
   { name: 'SOV/SOM Based Budget Planning tool', url: 'https://bp.thirdshiftmedia.agency/', icon: '🎯', description: 'Manage all projects in one centralized workspace' },
-  { name: 'GRP processing tool', url: 'https://dpt.thirdshiftmedia.agency/', icon: '🧮'},
-  { name: 'Coming Soon', url: 'https://www.thirdshiftmedia.agency/dashboard', icon: '✨'},
+  { name: 'GRP processing tool', url: 'https://dpt.thirdshiftmedia.agency/', icon: '🧮' },
+  { name: 'Coming Soon', url: 'https://www.thirdshiftmedia.agency/dashboard', icon: '✨' },
 ];
 
 export default function Dashboard() {
